@@ -7,7 +7,7 @@ Validus Fund V is a Private Equity Fund and invests in several kinds of Assets i
 Instructions to clone and run the project from your local machine.
 
 ```
-	git clone git clone git@github.com:stephenmullens/validus.git
+	git clone git@github.com:stephenmullens/validus.git
 	cd validus
 	pipenv install
 	pipenv shell
