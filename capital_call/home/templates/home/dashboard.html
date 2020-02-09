@@ -1,0 +1,55 @@
+{% extends "home/header.html" %}
+
+{% block header_library %}
+<link href="/static/css/home.css?v=v001" type='text/css' rel="stylesheet">
+{% endblock %}
+
+{% block header_content %}
+<h1>{{title}}</h1>
+{% endblock %}
+
+
+{% block content %}
+{% load static %}
+{% load humanize %}
+<div class="container-fluid ">
+  <div class="row">
+
+    <div class="col-12 dashboardBlock">
+      <h2>Funding Calls Composition:</h2>
+      <table class="table table-hover table-sm container-fluid">
+        <thead>
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Call ID</th>
+
+            {% for fund_name in funds_lists %}
+            <th scope="col">{{fund_name}}</th>
+            {% endfor %}
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in fund_events %}
+          <tr>
+            <td>{{item.date}}</td>
+            <td>{{item.call_id}}</td>
+            {% for fund_value in item.data %}
+              <td>&#36;{{fund_value|intcomma}} USD</td>
+            {% endfor %}
+            <td>{{item.message}}</td>
+          </tr>
+          {% endfor %}
+          {% if not fund_events %}
+          <tr>
+            <td colspan="6" class="text-center">No Data Available</td>
+          </tr>
+          {% endif %}
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}

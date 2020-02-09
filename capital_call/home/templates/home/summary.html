@@ -1,0 +1,167 @@
+{% extends "home/header.html" %}
+
+{% block header_library %}
+<link href="/static/css/home.css?v=v001" type='text/css' rel="stylesheet">
+{% endblock %}
+
+{% block header_content %}
+<h1>{{title}}</h1>
+{% endblock %}
+
+
+{% block content %}
+{% load static %}
+{% load humanize %}
+<div class="container-fluid ">
+  <div class="row">
+    <div class="col-12 informationBlock">
+      <h2>Investor Data:</h2>
+      <table class="table table-hover table-sm fixtureData">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Phone Number</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in investor_data %}
+          <tr>
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.phone_number}}</td>
+          </tr>
+          {% endfor %}
+          {% if not investor_data %}
+          <tr>
+            <td colspan="3" class="text-center">No Data Available</td>
+          </tr>
+          {% endif %}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-12 informationBlock">
+      <h2>Funds Data:</h2>
+      <table class="table table-hover table-sm fixtureData">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in funds_data %}
+          <tr>
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+          </tr>
+          {% endfor %}
+          {% if not funds_data %}
+          <tr>
+            <td colspan="2" class="text-center">No Data Available</td>
+          </tr>
+          {% endif %}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-12 informationBlock">
+      <h2>Commitments Data:</h2>
+      <table class="table table-hover table-sm fixtureData">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Fund ID</th>
+            <th scope="col">Date</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Investor</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in commitments_data %}
+          <tr>
+            <td>{{item.id}}</td>
+            <td>{{item.fund.name}}</td>
+            <td>{{item.date_committed}}</td>
+            <td>&#36;{{item.amount|intcomma}} USD</td>
+            <td>{{item.investor.name}}</td>
+
+          </tr>
+          {% endfor %}
+          {% if not commitments_data %}
+          <tr>
+            <td colspan="5" class="text-center">No Data Available</td>
+          </tr>
+          {% endif %}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-12 informationBlock">
+      <h2>Funding Calls:</h2>
+      <table class="table table-hover table-sm fixtureData">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">ID Tag</th>
+            <th scope="col">Date</th>
+            <th scope="col">Investment Name</th>
+            <th scope="col">Capital Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in funding_calls %}
+          <tr>
+            <td>{{item.id}}</td>
+            <td>{{item.id_tag}}</td>
+            <td>{{item.date}}</td>
+            <td>{{item.investment_name}}</td>
+            <td>&#36;{{item.capital_required|intcomma}} USD</td>
+          </tr>
+          {% endfor %}
+          {% if not funding_calls %}
+          <tr>
+            <td colspan="5" class="text-center">No Data Available</td>
+          </tr>
+          {% endif %}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-12 informationBlock">
+      <h2>Funding Calls Composition:</h2>
+      <table class="table table-hover table-sm fixtureData">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Funding Call ID</th>
+            <th scope="col">Commitment ID</th>
+            <th scope="col">Fund Name</th>
+            <th scope="col">Amount Assigned</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in funding_calls_composition %}
+          <tr>
+            <td>{{item.id}}</td>
+            <td>{{item.funding_call.id}}</td>
+            <td>{{item.commitment.id}}</td>
+            <td>{{item.fund.name}}</td>
+            <td>&#36;{{item.amount|intcomma}} USD</td>
+          </tr>
+          {% endfor %}
+          {% if not funding_calls_composition %}
+          <tr>
+            <td colspan="5" class="text-center">No Data Available</td>
+          </tr>
+          {% endif %}
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+
+{% endblock %}

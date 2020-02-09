@@ -1,0 +1,67 @@
+{% extends "home/header.html" %}
+
+{% block header_library %}
+<link href="/static/css/home.css?v=v001" type='text/css' rel="stylesheet">
+{% endblock %}
+
+{% block header_content %}
+<h1>{{title}}</h1>
+{% endblock %}
+
+
+{% block content %}
+{% load static %}
+{% load humanize %}
+<div class="container-fluid ">
+  <div class="row">
+
+    <div class="col-12 newCallFormBlock">
+      <h2 class="pb-4">Input Request (&#36;{{funds_available |intcomma}} USD Available):</h2>
+      <form action="/new_call" method="post" role="form">
+        {% csrf_token %}
+        <div class="form-group row">
+          <label for="date" class="col-sm-2 col-form-label">Date *</label>
+          <div class="col-sm-10">
+            <input type="date" class="form-control" name="date" id="date" value="{% now 'Y-m-d' %}" required>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="rules" class="col-sm-2 col-form-label">Rules *</label>
+          <div class="col-sm-10">
+            <select class="custom-select mr-sm-2" name="rules" id="rules" required>
+              <option value="1" selected>First In First Out (FIFO)</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="investment_name" class="col-sm-2 col-form-label">Investment Name *</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" name="investment_name" id="investment_name" required>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="capital_required" class="col-sm-2 col-form-label">Capital Required *</label>
+          <div class="col-sm-10">
+            <input type="number" step="0.01" min="0" class="form-control" name="capital_required" id="capital_required" required>
+          </div>
+        </div>
+
+        {% if message %}
+        <div class="alert alert-danger" role="alert">
+          {{message}}
+        </div>
+        {% endif %}
+
+        <div class="form-group row">
+          <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary">Calculate</button>
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

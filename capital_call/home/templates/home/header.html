@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Validus Capital Call Case Study">
+  <meta name="keywords" content="">
+
+  <!-- Open Graph and Facebook Tags -->
+
+  <!-- Twitter Card Data -->
+
+  <!-- Webpage Title-->
+  <title>{{title}}</title>
+
+  {% load static %}
+
+  <!-- Favicon -->
+
+  <!-- Misc Library -->
+  <link rel="stylesheet" href="/static/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link href="/static/css/global.css?v=v001" type='text/css' rel="stylesheet">
+  <script src="/static/js/jquery-3.4.1.min.js"></script>
+  <script src="/static/js/global.js?v=v001"></script>
+  <link href="/static/fonts/fontawesome-free-5.12.1-web/css/all.min.css?v=v001" rel="stylesheet">
+
+  <!-- Load additional header library as necessary -->
+  {% block header_library %}
+
+  {% endblock %}
+
+</head>
+
+<body>
+  <div>
+    <div class="container-fluid navBlock">
+      <nav class="navbar navbar-expand-md navbar-dark bg-faded">
+
+        <a class="navbar-brand" href="/">
+          <i class="fas fa-home NavIcon"></i>
+        </a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mr-auto">
+          </ul>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/dashboard">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/new_call">New Call</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/summary">Summary</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/reset_data">Reset Data</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div id = "header_content" class="container-fluid bodyContent">
+      {% block header_content %}
+      {% endblock %}
+    </div>
+  </div>
+
+  <div id = "body_content" class="container-fluid bodyContent">
+    {% block content %}
+    {% endblock %}
+  </div>
+
+  <footer class="container-fluid footerContent">
+    <div class="col-12 col-md-9 text-center text-sm-left">
+      <p class="footerCopyright">© Copyright {% now 'Y' %} </p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="/static/js/popper.min.js"></script>
+  <script src="/static/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <script src="/static/js/jquery.matchHeight.js"></script>
+
+</body>
+</html>

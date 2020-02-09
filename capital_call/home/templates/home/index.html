@@ -1,0 +1,26 @@
+{% extends "home/header.html" %}
+
+{% block header_library %}
+<link href="/static/css/home.css?v=v001" type='text/css' rel="stylesheet">
+{% endblock %}
+
+{% block header_content %}
+<h1>{{title}}</h1>
+{% endblock %}
+
+
+{% block content %}
+{% load static %}
+{% load humanize %}
+<div class="container-fluid ">
+  <div class="row">
+
+    <div class="col-12 dashboardBlock py-5 text-center">
+      <a href="/dashboard" class="btn btn-primary btn-lg">Capital Call</a>
+
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}

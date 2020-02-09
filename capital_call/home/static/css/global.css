@@ -1,0 +1,101 @@
+.NavIcon {
+  height:38px;
+  color:black;
+}
+.navBlock {
+  max-width:1024px;
+}
+.navBlock .navbar{
+  background:transparent;
+  min-height:48px;
+  padding-top:10px;
+  padding-left:0px;
+  padding-right:0px;
+  padding-bottom:10px
+}
+.navBlock .navbar-brand {
+  padding-right:15px;
+  padding-left:0px;
+  padding-top:0px;
+  padding-bottom:0px;
+  margin:0px;
+}
+.navBlock .navbar-brand img {
+  height:60px;
+  padding-right:30px;
+}
+.navBlock .navbar .collapse ul li .nav-link {
+  color:black;
+  font-size:14px;
+  font-weight:bold;
+  -webkit-transition: color 0.75s ease-out;
+  -moz-transition: color 0.75s ease-out;
+  -o-transition: color 0.75s ease-out;
+  transition: color 0.75s ease-out;
+}
+.navBlock .navbar .collapse ul li .nav-link:hover {
+  color:#F3A847;
+}
+.navBlock .navbar .collapse ul .navbar-nav {
+  padding-left:3px;
+}
+
+.navBlock .navbar button span {
+  height:25px;
+  width:25px;
+}
+
+.bodyContent {
+  padding-left:0px;
+  padding-right:0px;
+  font-size:16px;
+  color:black;
+  max-width:1024px;
+}
+
+.footerContent {
+  color:white;
+  background-color:black;
+  font-size:13px;
+  padding:0px;
+  min-height:200px;
+}
+.footerCopyright {
+  padding-left:0px;
+  padding-right:0px;
+  padding-top:15px;
+  font-size:10px;
+  margin-bottom:5px;
+}
+
+h1 {
+  font-size:26px;
+  text-align:center;
+  padding-bottom:45px;
+}
+h2 {
+  font-size:20px;
+}
+
+.fixtureData {
+  max-width:600px;
+}
+
+.informationBlock {
+  padding-bottom:30px;
+  font-size:12px;
+}
+
+.dashboardBlock {
+  max-width:1024px;
+  margin:auto;
+  padding-bottom:30px;
+  font-size:12px;
+}
+
+.newCallFormBlock {
+  max-width:600px;
+  margin:auto;
+  padding-bottom:30px;
+  font-size:12px;
+}
