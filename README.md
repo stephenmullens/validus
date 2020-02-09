@@ -26,8 +26,8 @@ http://127.0.0.1:8000/
 
 
 ## Code Styling:
-Python should follow the PEP8 standard.
-HTML should follow the HTML5 standard and pass W3C validation.
+- Python should follow the PEP8 standard.
+- HTML should follow the HTML5 standard and pass W3C validation.
 
 
 ## Testing Policy:
@@ -37,9 +37,13 @@ HTML should follow the HTML5 standard and pass W3C validation.
 - All user inputs (POST) should be evaluated and cleaned for SQL / JS Injection.
 - All changes to the database should be vetted such that the changes follow all necessary matching rules.
 - All changes to the database should perform the following:
+
 a) @transaction.atomic to ensure only complete execution is captured.
+
 b) Each fund should be checked to ensure that more funds have not been allocated to it, than were committed.
+
 c) The difference between the total allocated funds before and after the call request match the call request size. On very large datasets this may become a challenge, and should be assessed.
+
 d) The database should be locked during any mutations to the database to prevent two or more call requests being added at the same time and interacting. Alternatively move all mutations async into a queuing system with Celery or otherwise with a single thread.
 
 
@@ -47,9 +51,15 @@ d) The database should be locked during any mutations to the database to prevent
 1) Validate database can be accessed and written to.
 2) Load the fixtures data into the test database, verify data has loaded.
 3) Create multiple test cases to capture potential edge cases. After each test is complete, clear the test database and reload the fixture:
+
 a) Enter three new calls that will all be allocated by the first funding commitment. Verify correct allocation.
+
 b) Enter three new calls that will consume the entire of the first and partially the second funding commitment. Verify correct allocation.
+
 c) Create sufficient calls to consume all committed funds. No call should exactly match against an entire fund. Verify correct allocation.
+
 d) Create sufficient calls to consume all committed funds. Exactly one call should match each commitment in the correct order. Verify correct allocation.
+
 e) Create three calls which will consume 1cent more money than committed. Check for error, and evaluate database condition.
+
 f) Create calls with incorrect values, such as negative numbers and confirm errors. Evaluate database condition.
